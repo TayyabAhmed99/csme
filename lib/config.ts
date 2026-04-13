@@ -1,0 +1,18 @@
+export const siteConfig = {
+  name: "Hands-Free Tarragona",
+  companyIntro: "C.S. MENIK SL",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://yourdomain.com",
+  telegramBotUsername:
+    process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? "YourBotUsername",
+  defaultTelegramStart:
+    process.env.NEXT_PUBLIC_DEFAULT_TELEGRAM_START ?? "web_main",
+  supportEmail:
+    process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "support@yourdomain.com",
+  supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP ?? "",
+  enableVerify: process.env.NEXT_PUBLIC_ENABLE_VERIFY !== "false",
+  enableShare: process.env.NEXT_PUBLIC_ENABLE_SHARE !== "false",
+  /** Optional public URL for GuduX FX; if empty, /gudux-fx placeholder is used. */
+  guduFxUrl: (process.env.NEXT_PUBLIC_GUDUX_FX_URL ?? "").trim(),
+} as const;
