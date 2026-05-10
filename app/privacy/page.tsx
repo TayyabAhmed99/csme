@@ -1,19 +1,28 @@
 import Link from "next/link";
+import { ROUTES } from "@/lib/routes";
 
 export const metadata = {
-  title: "Privacy Policy | Hands-Free Tarragona",
+  title: "Privacy Policy | C.S. MENIK SL",
 };
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-surface">
       <div className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
-        <Link
-          href="/"
-          className="text-sm font-medium text-brand-accent hover:underline"
-        >
-          ← Back to home
-        </Link>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <Link
+            href={ROUTES.parent}
+            className="font-medium text-brand-accent hover:underline"
+          >
+            ← Company home
+          </Link>
+          <Link
+            href={ROUTES.touristHandsFree}
+            className="text-brand/60 hover:text-brand hover:underline"
+          >
+            Tourist Hands Free
+          </Link>
+        </div>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-brand">
           Privacy Policy
         </h1>
@@ -39,9 +48,9 @@ export default function PrivacyPage() {
           </p>
           <h2 className="mt-8 text-lg font-semibold text-brand">Contact</h2>
           <p className="mt-2">
-            For privacy questions related to Hands-Free Tarragona, contact C.S.
-            MENIK SL through the channels you publish for your business (for
-            example, your official email or Telegram presence).
+            For privacy questions related to Tourist Hands Free or other products,
+            contact C.S. MENIK SL through the channels you publish for your business
+            (for example, your official email or Telegram presence).
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Hands-Free Tarragona",
+  name: "Tourist Hands Free",
   companyIntro: "C.S. MENIK SL",
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
@@ -13,6 +13,6 @@ export const siteConfig = {
   supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP ?? "",
   enableVerify: process.env.NEXT_PUBLIC_ENABLE_VERIFY !== "false",
   enableShare: process.env.NEXT_PUBLIC_ENABLE_SHARE !== "false",
-  /** Optional public URL for GuduX FX; if empty, /gudux-fx placeholder is used. */
+  /** Optional public HTTPS URL for FX Discovery; when set, /fx-discovery shows an external launch CTA. */
   guduFxUrl: (process.env.NEXT_PUBLIC_GUDUX_FX_URL ?? "").trim(),
 } as const;

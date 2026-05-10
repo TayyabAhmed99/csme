@@ -11,23 +11,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
-  title:
-    "Hands-Free Tarragona | Luggage Pickup & Later Delivery | C.S. MENIK SL",
+  title: {
+    default: `${siteConfig.companyIntro} | Ecosystem`,
+    template: `%s | ${siteConfig.companyIntro}`,
+  },
   description:
-    "Hands-Free Tarragona by C.S. MENIK SL. Get an instant quote, book in under 2 minutes, and explore Tarragona without carrying your luggage. Pickup from station, hotel, or Airbnb.",
-  keywords: [
-    "luggage storage Tarragona",
-    "luggage pickup Tarragona",
-    "luggage delivery Tarragona",
-    "hands free travel Tarragona",
-    "Tarragona station luggage service",
-    "hotel luggage pickup Tarragona",
-    "Airbnb luggage service Tarragona",
-  ],
+    "C.S. MENIK SL — lightweight corporate shell for Tourist Hands Free (Tarragona luggage) and FX Discovery (coming soon). Each brand has its own URL and journey.",
   openGraph: {
-    title: "Hands-Free Tarragona",
+    title: siteConfig.companyIntro,
     description:
-      "We collect your luggage and deliver it later — so you can explore Tarragona hands-free.",
+      "Focused product funnels: travel logistics and FX, with minimal crossover between brands.",
     type: "website",
     url: siteConfig.siteUrl,
   },

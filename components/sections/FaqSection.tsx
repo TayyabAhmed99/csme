@@ -5,8 +5,8 @@ import { trackEvent } from "@/lib/analytics";
 const faqs = [
   {
     id: "what-is",
-    q: "What is Hands-Free Tarragona?",
-    a: "Hands-Free Tarragona is a luggage pickup, hold, and later delivery service that lets you explore the city without carrying your bags.",
+    q: "What is Tourist Hands Free?",
+    a: "Tourist Hands Free is a luggage pickup, hold, and later delivery service in Tarragona that lets you explore the city without carrying your bags.",
   },
   {
     id: "how-book",

@@ -1,12 +1,8 @@
 "use client";
 
-import {
-  IconMessage,
-  IconMapPin,
-  IconClock,
-  IconTruck,
-} from "@/components/icons";
+import Image from "next/image";
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
+import { touristHowItWorksMedia } from "@/lib/tourist-media";
 
 type HowItWorksSectionProps = {
   telegramHref: string;
@@ -14,26 +10,18 @@ type HowItWorksSectionProps = {
 
 const steps = [
   {
-    title: "Start in Telegram",
-    body: 'Tap “Start Booking” and answer a few quick questions.',
-    icon: IconMessage,
+    title: "Reserve on Telegram",
+    body: "Quick booking via our bot — quote and time windows in one thread.",
   },
   {
-    title: "Choose pickup & drop-off",
-    body: "Tell us where we should collect your bags and where you want them delivered later.",
-    icon: IconMapPin,
+    title: "Drop off or transfer",
+    body: "We collect from your hotel, station, or Airbnb and handle your bags securely.",
   },
   {
-    title: "Receive your instant quote",
-    body: "Get your price, pickup window, and delivery timing before payment.",
-    icon: IconClock,
+    title: "Enjoy your day",
+    body: "Explore Tarragona hands-free while we store or move your luggage for you.",
   },
-  {
-    title: "We collect, secure, and deliver",
-    body: "Your luggage is tagged with secure QR bag IDs at pickup and delivered later to your destination.",
-    icon: IconTruck,
-  },
-];
+] as const;
 
 export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
   return (
@@ -47,22 +35,36 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
             How it works
           </h2>
           <p className="mt-3 text-sm text-brand/70 sm:text-base">
-            A simple Telegram-first booking experience built for travelers who want to
-            move around Tarragona without luggage stress.
+            Three simple steps from booking to exploring — all centered on Telegram.
           </p>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
           {steps.map((step, i) => {
-            const Icon = step.icon;
+            const media = touristHowItWorksMedia[i];
             return (
               <article
                 key={step.title}
-                className="rounded-2xl border border-black/5 bg-white p-6 shadow-soft"
+                className="relative flex flex-col overflow-hidden rounded-2xl border border-sky-200/60 bg-gradient-to-b from-sky-50/90 to-white p-5 shadow-soft sm:p-6"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/5 text-brand">
-                  <Icon className="h-6 w-6" />
+                {i < steps.length - 1 ? (
+                  <span
+                    className="absolute right-[-14px] top-1/2 z-10 hidden -translate-y-1/2 text-2xl font-light text-brand/25 md:block"
+                    aria-hidden
+                  >
+                    →
+                  </span>
+                ) : null}
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
+                  <Image
+                    src={media.src}
+                    alt={media.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized
+                  />
                 </div>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand/45">
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand-accent">
                   Step {i + 1}
                 </p>
                 <h3 className="mt-1 text-lg font-semibold text-brand">{step.title}</h3>
@@ -77,7 +79,7 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
             event="cta_telegram_click_howitworks"
             variant="primary"
           >
-            Start Booking on Telegram
+            Book now on Telegram
           </TrackedTelegramCta>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
+import { ROUTES } from "@/lib/routes";
 import {
   getTelegramDeepLink,
   TELEGRAM_PLACEMENT,
@@ -7,7 +8,7 @@ import {
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
 
 export const metadata = {
-  title: "Support | Hands-Free Tarragona",
+  title: "Support | Tourist Hands Free",
 };
 
 export default function SupportPage() {
@@ -17,12 +18,20 @@ export default function SupportPage() {
   return (
     <div className="min-h-screen bg-surface">
       <div className="mx-auto max-w-lg px-4 py-12 sm:py-16">
-        <Link
-          href="/"
-          className="text-sm font-medium text-brand-accent hover:underline"
-        >
-          ← Back to home
-        </Link>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <Link
+            href={ROUTES.touristHandsFree}
+            className="font-medium text-brand-accent hover:underline"
+          >
+            ← Tourist Hands Free
+          </Link>
+          <Link
+            href={ROUTES.parent}
+            className="text-brand/60 hover:text-brand hover:underline"
+          >
+            Company home
+          </Link>
+        </div>
         <h1 className="mt-6 text-2xl font-semibold tracking-tight text-brand">
           Support
         </h1>

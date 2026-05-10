@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { VerifyCard } from "@/components/verify/VerifyCard";
+import { ROUTES } from "@/lib/routes";
 import { getPublicVerifyData } from "@/lib/verify-data";
 import {
   getTelegramDeepLink,
@@ -22,10 +23,10 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
     <div className="min-h-screen bg-surface">
       <div className="mx-auto max-w-lg px-4 py-10 sm:py-14">
         <Link
-          href="/"
+          href={ROUTES.touristHandsFree}
           className="text-sm font-medium text-brand-accent hover:underline"
         >
-          ← Back to home
+          ← Tourist Hands Free
         </Link>
         <div className="mt-8">
           <VerifyCard data={data} telegramSupportHref={telegramSupportHref} />

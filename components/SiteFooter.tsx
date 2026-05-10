@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { IconTelegram } from "@/components/icons";
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
 import { siteConfig } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
@@ -15,13 +16,29 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
 
   return (
     <footer className="border-t border-black/5 bg-brand py-12 text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 border-b border-white/10 px-4 pb-10 text-center sm:flex-row sm:justify-between sm:text-left">
+        <p className="text-sm font-semibold tracking-wide text-white/95">
+          Affordable, Reliable, Safe.
+        </p>
+        <a
+          href={telegramHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          aria-label="Telegram"
+          onClick={() => trackEvent("cta_telegram_click_footer_social", { href: telegramHref })}
+        >
+          <IconTelegram className="h-5 w-5" />
+        </a>
+      </div>
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="text-lg font-semibold">Hands-Free Tarragona</p>
-          <p className="mt-2 text-sm text-white/75">Travel lighter. Explore more.</p>
+          <p className="text-lg font-semibold">Tourist Hands Free</p>
+          <p className="mt-2 text-sm text-white/75">
+            Tarragona · Travel lighter. Explore more.
+          </p>
           <p className="mt-3 text-sm text-white/65">
-            Introduced and operated by{" "}
-            <span className="text-white/90">C.S. MENIK SL</span>
+            Operated by <span className="text-white/90">C.S. MENIK SL</span>
           </p>
           <p className="mt-2 text-xs text-white/45">Tarragona, Spain</p>
         </div>
@@ -34,8 +51,8 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
               </a>
             </li>
             <li>
-              <a href="#security" className="hover:text-white">
-                Security
+              <a href="#service-features" className="hover:text-white">
+                Services
               </a>
             </li>
             <li>

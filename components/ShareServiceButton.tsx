@@ -19,7 +19,7 @@ export function ShareServiceButton({
     if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({
-          title: "Hands-Free Tarragona",
+          title: "Tourist Hands Free",
           text: "Travel Tarragona without carrying your luggage.",
           url: shareUrl,
         });

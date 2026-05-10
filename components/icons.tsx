@@ -27,6 +27,21 @@ export function IconShield({ className }: { className?: string }) {
   );
 }
 
+export function IconHeart({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      aria-hidden
+    >
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 22l7.7-8.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8Z" />
+    </svg>
+  );
+}
+
 export function IconQr({ className }: { className?: string }) {
   return (
     <svg

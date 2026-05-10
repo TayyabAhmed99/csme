@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 
 type ScrollAndPageAnalyticsProps = {
@@ -14,17 +15,19 @@ export function ScrollAndPageAnalytics({
   resolvedStartExample,
   src,
 }: ScrollAndPageAnalyticsProps) {
+  const pathname = usePathname();
   const fired = useRef({ p50: false, p90: false });
 
   useEffect(() => {
-    trackEvent("page_view", { path: "/", src: src ?? undefined });
+    trackEvent("page_view", { path: pathname, src: src ?? undefined });
     if (hasMarketingRef) {
       trackEvent("ref_detected", {});
     }
     trackEvent("telegram_deeplink_built", { start: resolvedStartExample });
-  }, [hasMarketingRef, resolvedStartExample]);
+  }, [hasMarketingRef, resolvedStartExample, pathname, src]);
 
   useEffect(() => {
+    fired.current = { p50: false, p90: false };
     const onScroll = () => {
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
@@ -42,7 +45,7 @@ export function ScrollAndPageAnalytics({
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   return null;
 }

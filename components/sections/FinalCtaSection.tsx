@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
 import { ShareServiceButton } from "@/components/ShareServiceButton";
+import { IconTelegram, IconShield, IconHeart } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
+import { ROUTES } from "@/lib/routes";
 
 type FinalCtaSectionProps = {
   telegramHref: string;
@@ -19,19 +21,24 @@ export function FinalCtaSection({ telegramHref, shareUrl }: FinalCtaSectionProps
     >
       <div className="mx-auto max-w-3xl px-4 text-center">
         <h2 className="text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
-          Ready to explore Tarragona without your luggage?
+          Get started in seconds!
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm text-brand/70 sm:text-base">
-          Get your quote in seconds. Book in under 2 minutes. Secure QR bag tagging
-          included.
+          Chat with our Telegram bot now:
         </p>
+        <div className="mt-8 flex justify-center">
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand text-white shadow-lift sm:h-24 sm:w-24">
+            <IconTelegram className="h-10 w-10 sm:h-12 sm:w-12" />
+          </div>
+        </div>
         <div className="mt-8 flex justify-center">
           <TrackedTelegramCta
             href={telegramHref}
             event="cta_telegram_click_finalcta"
-            className="min-w-[240px] px-8 py-4"
+            iconPosition="end"
+            className="min-w-[260px] px-8 py-4 text-xs font-bold uppercase tracking-wide sm:text-sm"
           >
-            Start Booking on Telegram
+            Launch Telegram bot
           </TrackedTelegramCta>
         </div>
         {siteConfig.enableShare ? (
@@ -39,9 +46,19 @@ export function FinalCtaSection({ telegramHref, shareUrl }: FinalCtaSectionProps
             <ShareServiceButton shareUrl={shareUrl} />
           </div>
         ) : null}
+        <div className="mx-auto mt-10 flex max-w-md flex-wrap items-center justify-center gap-6 text-sm text-brand/75">
+          <span className="inline-flex items-center gap-2">
+            <IconShield className="h-5 w-5 shrink-0 text-brand-accent" />
+            Secure payment
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <IconHeart className="h-5 w-5 shrink-0 text-brand-accent" />
+            Trusted service
+          </span>
+        </div>
         <Link
-          href="/support"
-          className="mt-6 inline-block text-sm font-semibold text-brand-accent underline-offset-4 hover:underline"
+          href={ROUTES.support}
+          className="mt-8 inline-block text-sm font-semibold text-brand-accent underline-offset-4 hover:underline"
           onClick={() => trackEvent("cta_support_click", { from: "final_cta" })}
         >
           Need help?
