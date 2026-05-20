@@ -35,6 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="dns-prefetch" href="https://t.me" />
+        <link rel="preconnect" href="https://t.me" />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );

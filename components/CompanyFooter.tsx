@@ -18,12 +18,22 @@ export function CompanyFooter() {
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/70">
           <li>
-            <Link href={ROUTES.touristHandsFree} className="hover:text-white">
+            <Link
+              href={ROUTES.touristHandsFree}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
               Tourist Hands Free
             </Link>
           </li>
           <li>
-            <Link href={ROUTES.fxDiscovery} className="hover:text-white">
+            <Link
+              href={ROUTES.fxDiscovery}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
               FX Discovery
             </Link>
           </li>

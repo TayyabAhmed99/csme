@@ -72,6 +72,8 @@ export function ParentCompanyHeader() {
               >
                 <Link
                   href={ROUTES.touristHandsFree}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block px-4 py-2.5 text-sm text-[#605e7b] hover:bg-surface"
                   role="menuitem"
                   onClick={() => setBrandsOpen(false)}
@@ -83,6 +85,8 @@ export function ParentCompanyHeader() {
                 </Link>
                 <Link
                   href={ROUTES.fxDiscovery}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block px-4 py-2.5 text-sm text-[#605e7b] hover:bg-surface"
                   role="menuitem"
                   onClick={() => setBrandsOpen(false)}
@@ -113,6 +117,8 @@ export function ParentCompanyHeader() {
 
         <Link
           href={ROUTES.touristHandsFree}
+          target="_blank"
+          rel="noopener noreferrer"
           className="justify-self-end rounded-lg bg-[#605e7b] px-3 py-2 text-xs font-semibold text-white shadow-soft transition-colors hover:bg-[#605e7b]-hover sm:px-4 sm:text-sm"
         >
           <span className="sm:hidden">THF</span>

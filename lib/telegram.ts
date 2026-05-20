@@ -18,6 +18,11 @@ export const TELEGRAM_PLACEMENT = {
 export type TelegramPlacement =
   (typeof TELEGRAM_PLACEMENT)[keyof typeof TELEGRAM_PLACEMENT];
 
+const PLACEHOLDER_USERNAMES = new Set(["yourbotusername", "botusername", ""]);
+
+/** Opens Telegram (app or web login) — same pattern as wa.me for WhatsApp. */
+export const TELEGRAM_FALLBACK_URL = "https://t.me/";
+
 export function sanitizeToken(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 48);
 }
@@ -34,7 +39,27 @@ export function buildMarketingStartParam(inbound: InboundParams): string | null 
 }
 
 export function getTelegramBotUsername(): string {
-  return siteConfig.telegramBotUsername.replace(/^@/, "");
+  return siteConfig.telegramBotUsername.replace(/^@/, "").trim();
+}
+
+export function isTelegramBotConfigured(): boolean {
+  const username = getTelegramBotUsername().toLowerCase();
+  return username.length > 0 && !PLACEHOLDER_USERNAMES.has(username);
+}
+
+/**
+ * Universal Telegram open URL (t.me). Mobile opens the app when installed;
+ * otherwise Telegram Web / sign-in — like wa.me for WhatsApp.
+ */
+export function buildTelegramUrl(start?: string): string {
+  if (!isTelegramBotConfigured()) {
+    return TELEGRAM_FALLBACK_URL;
+  }
+  const username = getTelegramBotUsername();
+  if (!start) {
+    return `https://t.me/${username}`;
+  }
+  return `https://t.me/${username}?start=${encodeURIComponent(start)}`;
 }
 
 /**
@@ -47,8 +72,7 @@ export function getTelegramDeepLink(
   const inbound = getInboundParams(searchParams);
   const marketing = buildMarketingStartParam(inbound);
   const start = marketing ?? placement;
-  const username = getTelegramBotUsername();
-  return `https://t.me/${username}?start=${encodeURIComponent(start)}`;
+  return buildTelegramUrl(start);
 }
 
 /**
@@ -57,7 +81,6 @@ export function getTelegramDeepLink(
 export function getTelegramBookRedirectUrl(
   query: Record<string, string | undefined>
 ): string {
-  const username = getTelegramBotUsername();
   const ref = query.ref;
   const partner = query.partner;
   const campaign = query.campaign;
@@ -67,5 +90,5 @@ export function getTelegramBookRedirectUrl(
   else if (partner) start = `partner_${sanitizeToken(partner)}`;
   else if (campaign) start = `camp_${sanitizeToken(campaign)}`;
 
-  return `https://t.me/${username}?start=${encodeURIComponent(start)}`;
+  return buildTelegramUrl(start);
 }

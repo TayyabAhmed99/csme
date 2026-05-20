@@ -5,11 +5,7 @@ import { IconTelegram } from "@/components/icons";
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
 import { siteConfig } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
-import {
-  isTelegramCtaEnabled,
-  TELEGRAM_CTA_DISABLED_TITLE,
-  telegramCtaDisabledClass,
-} from "@/lib/telegram-cta";
+import { isTelegramCtaEnabled } from "@/lib/telegram-cta";
 
 type SiteFooterProps = {
   telegramHref: string;
@@ -35,23 +31,12 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
             className="flex h-11 w-11 items-center justify-center rounded-full bg-thf-navy text-white transition-colors hover:bg-thf-navy-dark"
             aria-label="Telegram"
             onClick={() =>
-              trackEvent("cta_telegram_click_footer_social", { href: telegramHref })
+              void trackEvent("cta_telegram_click_footer_social", { href: telegramHref })
             }
           >
             <IconTelegram className="h-5 w-5" />
           </a>
-        ) : (
-          <button
-            type="button"
-            disabled
-            title={TELEGRAM_CTA_DISABLED_TITLE}
-            aria-label="Telegram (coming soon)"
-            aria-disabled="true"
-            className={`flex h-11 w-11 items-center justify-center rounded-full bg-thf-navy text-white ${telegramCtaDisabledClass}`}
-          >
-            <IconTelegram className="h-5 w-5" />
-          </button>
-        )}
+        ) : null}
       </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>

@@ -49,12 +49,16 @@ export default function ParentHomePage() {
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 href={ROUTES.touristHandsFree}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#605e7b] shadow-lift transition-colors hover:bg-white/95"
               >
                 Tourist Hands Free
               </Link>
               <Link
                 href={ROUTES.fxDiscovery}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex rounded-xl border border-white/35 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15"
               >
                 FX Discovery
@@ -91,6 +95,8 @@ export default function ParentHomePage() {
                 </p>
                 <Link
                   href={ROUTES.touristHandsFree}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-[#605e7b] px-5 py-3 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-[#605e7b]-hover sm:w-auto"
                 >
                   Enter product
@@ -110,6 +116,8 @@ export default function ParentHomePage() {
                 </p>
                 <Link
                   href={ROUTES.fxDiscovery}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex w-full items-center justify-center rounded-lg border border-[#605e7b]/25 bg-white px-5 py-3 text-sm font-semibold text-[#605e7b] transition-colors hover:bg-surface sm:w-auto"
                 >
                   View status
