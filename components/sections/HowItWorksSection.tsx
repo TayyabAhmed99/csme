@@ -27,14 +27,14 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
   return (
     <section
       id="how-it-works"
-      className="scroll-mt-28 border-b border-black/5 bg-surface py-14 sm:py-20"
+      className="scroll-mt-28 border-b border-thf-line bg-thf-step py-14 sm:py-20"
     >
       <div className="mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-thf-navy sm:text-3xl">
             How it works
           </h2>
-          <p className="mt-3 text-sm text-brand/70 sm:text-base">
+          <p className="mt-3 text-sm text-thf-muted sm:text-base">
             Three simple steps from booking to exploring — all centered on Telegram.
           </p>
         </div>
@@ -44,17 +44,20 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
             return (
               <article
                 key={step.title}
-                className="relative flex flex-col overflow-hidden rounded-2xl border border-sky-200/60 bg-gradient-to-b from-sky-50/90 to-white p-5 shadow-soft sm:p-6"
+                className="relative flex flex-col overflow-hidden rounded-2xl border border-thf-line/80 bg-thf-step p-5 shadow-soft sm:p-6"
               >
                 {i < steps.length - 1 ? (
                   <span
-                    className="absolute right-[-14px] top-1/2 z-10 hidden -translate-y-1/2 text-2xl font-light text-brand/25 md:block"
+                    className="absolute right-[-14px] top-1/2 z-10 hidden -translate-y-1/2 text-2xl font-light text-thf-navy/25 md:block"
                     aria-hidden
                   >
                     →
                   </span>
                 ) : null}
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
+                <p className="text-xs font-semibold uppercase tracking-wider text-thf-blue">
+                  Step {i + 1}
+                </p>
+                <div className="relative mt-3 aspect-[4/3] w-full overflow-hidden rounded-xl bg-thf-cream">
                   <Image
                     src={media.src}
                     alt={media.alt}
@@ -64,11 +67,8 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
                     unoptimized
                   />
                 </div>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand-accent">
-                  Step {i + 1}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold text-brand">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand/70">{step.body}</p>
+                <h3 className="mt-4 text-lg font-semibold text-thf-navy">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-thf-muted">{step.body}</p>
               </article>
             );
           })}
@@ -77,6 +77,7 @@ export function HowItWorksSection({ telegramHref }: HowItWorksSectionProps) {
           <TrackedTelegramCta
             href={telegramHref}
             event="cta_telegram_click_howitworks"
+            tone="thf"
             variant="primary"
           >
             Book now on Telegram

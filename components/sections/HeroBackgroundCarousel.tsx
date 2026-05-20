@@ -31,16 +31,13 @@ export function HeroBackgroundCarousel() {
             src={slide.src}
             alt=""
             fill
-            className="object-cover object-center brightness-[0.92] contrast-[1.04] saturate-[1.06]"
+            className="object-cover object-center brightness-[0.92] contrast-[1.04]"
             sizes="100vw"
             priority={i === 0}
             unoptimized
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_50%_45%,transparent_0%,rgba(12,35,64,0.22)_100%)]" />
     </div>
   );
 }

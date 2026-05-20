@@ -1,11 +1,18 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import { ROUTES } from "@/lib/routes";
+
+const thfFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-thf",
+  display: "swap",
+});
 
 const url = `${siteConfig.siteUrl}${ROUTES.touristHandsFree}`;
 
 export const metadata: Metadata = {
-  title: "Tourist Hands Free | Luggage storage & transfers | Tarragona",
+  title: "Tourist Hands Free | Travel light in Tarragona",
   description:
     "Book in minutes on Telegram: secure luggage storage, pickup, and delivery in Tarragona. Travel hands-free.",
   keywords: [
@@ -26,8 +33,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0F4C81",
+};
+
 export default function TouristHandsFreeLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <div className={`thf-product min-h-screen ${thfFont.variable}`}>{children}</div>
+  );
 }

@@ -5,7 +5,10 @@ import { siteConfig } from "@/lib/config";
 export function CompanyFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-black/5 bg-[#1a2332] py-10 text-white">
+    <footer
+      className="border-t border-black/10 py-10 text-white"
+      style={{ backgroundColor: "#605e7b" }}
+    >
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-start">
         <p className="text-center text-sm text-white/80 sm:text-left">
           <span className="font-semibold text-white">{siteConfig.companyIntro}</span>

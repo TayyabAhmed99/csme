@@ -8,7 +8,7 @@ import {
 import { TrackedTelegramCta } from "@/components/TrackedTelegramCta";
 
 export const metadata = {
-  title: "Support | Tourist Hands Free",
+  title: "Help | Tourist Hands Free",
 };
 
 export default function SupportPage() {
@@ -16,41 +16,33 @@ export default function SupportPage() {
   const wa = siteConfig.supportWhatsApp;
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="thf-product min-h-screen bg-thf-cream font-thf">
       <div className="mx-auto max-w-lg px-4 py-12 sm:py-16">
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          <Link
-            href={ROUTES.touristHandsFree}
-            className="font-medium text-brand-accent hover:underline"
-          >
-            ← Tourist Hands Free
-          </Link>
-          <Link
-            href={ROUTES.parent}
-            className="text-brand/60 hover:text-brand hover:underline"
-          >
-            Company home
-          </Link>
-        </div>
-        <h1 className="mt-6 text-2xl font-semibold tracking-tight text-brand">
-          Support
+        <Link
+          href={ROUTES.touristHandsFree}
+          className="text-sm font-semibold text-thf-navy hover:underline"
+        >
+          ← Back to Tourist Hands Free
+        </Link>
+        <h1 className="mt-8 text-3xl font-extrabold tracking-tight text-thf-navy">
+          Help &amp; support
         </h1>
-        <p className="mt-4 text-sm leading-relaxed text-brand/75">
-          Need help with your luggage booking or service status? The fastest path is
-          the same Telegram thread where you booked — our team can see your context
-          there.
+        <p className="mt-4 text-base leading-relaxed text-thf-muted">
+          The fastest path is your Telegram booking thread — our team can see your
+          context there.
         </p>
         <div className="mt-8 flex flex-col gap-3">
           <TrackedTelegramCta
             href={telegramHref}
             event="cta_support_telegram_support_page"
+            tone="thf"
             className="w-full"
           >
             Open Telegram
           </TrackedTelegramCta>
           <a
             href={`mailto:${siteConfig.supportEmail}`}
-            className="inline-flex w-full items-center justify-center rounded-lg border border-brand/15 bg-white px-5 py-3 text-sm font-semibold text-brand hover:bg-brand/5"
+            className="inline-flex w-full items-center justify-center rounded-md border border-thf-navy/25 bg-thf-cream px-5 py-3 text-sm font-semibold text-thf-navy hover:bg-thf-sky"
           >
             Email {siteConfig.supportEmail}
           </a>
@@ -59,7 +51,7 @@ export default function SupportPage() {
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-lg border border-brand/15 bg-white px-5 py-3 text-sm font-semibold text-brand hover:bg-brand/5"
+              className="inline-flex w-full items-center justify-center rounded-md border border-thf-navy/25 bg-thf-cream px-5 py-3 text-sm font-semibold text-thf-navy hover:bg-thf-sky"
             >
               WhatsApp
             </a>

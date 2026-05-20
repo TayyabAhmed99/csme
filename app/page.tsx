@@ -20,18 +20,21 @@ export const metadata: Metadata = {
 
 export default function ParentHomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-surface text-brand">
+    <div className="flex min-h-screen flex-col bg-surface text-[#605e7b]">
       <ParentCompanyHeader />
 
       <main className="flex-1">
-        <section className="relative overflow-hidden border-b border-black/5 bg-brand py-20 sm:py-28">
+        <section className="relative overflow-hidden border-b border-black/5 py-20 sm:py-28">
           <div
-            className="pointer-events-none absolute inset-0 opacity-90"
+            className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url(/parent/banner-bg.png)" }}
             aria-hidden
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_70%_20%,rgba(13,110,110,0.35),transparent_55%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_10%_80%,rgba(255,255,255,0.08),transparent_50%)]" />
-          </div>
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ backgroundColor: "rgb(116 116 116 / 60%)" }}
+            aria-hidden
+          />
           <div className="relative mx-auto max-w-3xl px-4 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
               One ecosystem
@@ -40,12 +43,13 @@ export default function ParentHomePage() {
               Focused products. Clear journeys.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
-              {siteConfig.companyIntro} brings together standalone product experiences designed for speed, simplicity, and seamless customer journeys.
+              {siteConfig.companyIntro} brings together standalone product experiences
+              designed for speed, simplicity, and seamless customer journeys.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 href={ROUTES.touristHandsFree}
-                className="inline-flex rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-brand shadow-lift transition-colors hover:bg-white/95"
+                className="inline-flex rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#605e7b] shadow-lift transition-colors hover:bg-white/95"
               >
                 Tourist Hands Free
               </Link>
@@ -64,49 +68,49 @@ export default function ParentHomePage() {
           className="scroll-mt-24 border-b border-black/5 bg-white py-16 sm:py-20"
         >
           <div className="mx-auto max-w-6xl px-4">
-            <h2 className="text-center text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
+            <h2 className="text-center text-2xl font-semibold tracking-tight text-[#605e7b]  sm:text-3xl">
               Our brands
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-brand/70 sm:text-base">
+            <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-[#605e7b]/70 sm:text-base">
               Each product has its own visual identity, landing structure, and
               conversion path. Campaign traffic can land on a brand URL directly.
             </p>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2">
               <article className="flex flex-col rounded-2xl border border-black/5 bg-surface p-8 shadow-soft sm:p-10">
-                <h3 className="text-xl font-semibold tracking-tight text-brand sm:text-2xl">
+                <h3 className="text-xl font-semibold tracking-tight text-[#605e7b] sm:text-2xl">
                   Tourist Hands Free
                 </h3>
-                <p className="mt-1 text-sm font-medium text-brand-accent">
+                <p className="mt-1 text-sm font-medium text-[#605e7b]">
                   Tarragona · Live
                 </p>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-brand/75 sm:text-base">
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#605e7b]/75 sm:text-base">
                   Luggage storage, pickup, and delivery with Telegram-first booking.
                   Built for visitors who want to land from an ad and move straight to
                   the bot.
                 </p>
                 <Link
                   href={ROUTES.touristHandsFree}
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-brand-muted sm:w-auto"
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-[#605e7b] px-5 py-3 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-[#605e7b]-hover sm:w-auto"
                 >
                   Enter product
                 </Link>
               </article>
 
               <article className="flex flex-col rounded-2xl border border-black/5 bg-surface p-8 shadow-soft sm:p-10">
-                <h3 className="text-xl font-semibold tracking-tight text-brand sm:text-2xl">
+                <h3 className="text-xl font-semibold tracking-tight text-[#605e7b] sm:text-2xl">
                   FX Discovery
                 </h3>
-                <p className="mt-1 text-sm font-medium text-brand/55">
+                <p className="mt-1 text-sm font-medium text-[#605e7b]">
                   Coming soon
                 </p>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-brand/75 sm:text-base">
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#605e7b]/75 sm:text-base">
                   A separate FX-focused experience under the same company — isolated
                   branding and funnel, no mixed messaging with travel logistics.
                 </p>
                 <Link
                   href={ROUTES.fxDiscovery}
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg border border-brand/20 bg-white px-5 py-3 text-sm font-semibold text-brand transition-colors hover:bg-surface sm:w-auto"
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg border border-[#605e7b]/25 bg-white px-5 py-3 text-sm font-semibold text-[#605e7b] transition-colors hover:bg-surface sm:w-auto"
                 >
                   View status
                 </Link>
@@ -120,15 +124,15 @@ export default function ParentHomePage() {
           className="scroll-mt-24 border-b border-black/5 bg-surface py-14 sm:py-20"
         >
           <div className="mx-auto max-w-3xl px-4 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#605e7b] sm:text-3xl">
               About {siteConfig.companyIntro}
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-brand/75 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-[#605e7b]/75 sm:text-base">
               We keep this site intentionally light. The priority is each
               product&apos;s own journey — especially fast paths from web to
               Telegram or other APIs where the transaction happens.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-brand/75 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-[#605e7b]/75 sm:text-base">
               Legal, privacy, and support links are shared at the company level; the
               product surface stays focused on one offer at a time.
             </p>

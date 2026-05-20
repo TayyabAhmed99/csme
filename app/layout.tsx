@@ -12,22 +12,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.companyIntro} | Ecosystem`,
-    template: `%s | ${siteConfig.companyIntro}`,
+    default: siteConfig.companyIntro,
+    template: "%s",
   },
   description:
-    "C.S. MENIK SL — lightweight corporate shell for Tourist Hands Free (Tarragona luggage) and FX Discovery (coming soon). Each brand has its own URL and journey.",
-  openGraph: {
-    title: siteConfig.companyIntro,
-    description:
-      "Focused product funnels: travel logistics and FX, with minimal crossover between brands.",
-    type: "website",
-    url: siteConfig.siteUrl,
+    "Independent product experiences — travel logistics and market discovery.",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c2340",
   width: "device-width",
   initialScale: 1,
 };

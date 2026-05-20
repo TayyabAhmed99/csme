@@ -52,19 +52,19 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="scroll-mt-28 bg-surface py-14 sm:py-20">
+    <section id="faq" className="scroll-mt-28 bg-thf-cream py-14 sm:py-20">
       <div className="mx-auto max-w-3xl px-4">
-        <h2 className="text-center text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
+        <h2 className="text-center text-2xl font-semibold tracking-tight text-thf-navy sm:text-3xl">
           Frequently asked questions
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-brand/70 sm:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-thf-muted sm:text-base">
           For booking-specific details, your Telegram thread remains the clearest record.
         </p>
         <div className="mt-10 space-y-3">
           {faqs.map((item) => (
             <details
               key={item.id}
-              className="group rounded-xl border border-black/5 bg-white px-4 py-1 shadow-soft open:shadow-md"
+              className="group rounded-xl border border-thf-line bg-thf-sky px-4 py-1 shadow-soft open:shadow-thf-card"
               onToggle={(e) => {
                 const el = e.currentTarget;
                 if (el.open) {
@@ -72,15 +72,15 @@ export function FaqSection() {
                 }
               }}
             >
-              <summary className="cursor-pointer list-none py-3 text-sm font-semibold text-brand outline-none marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="cursor-pointer list-none py-3 text-sm font-semibold text-thf-navy outline-none marker:content-none [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center justify-between gap-3">
                   {item.q}
-                  <span className="text-brand/40 transition group-open:rotate-45">
+                  <span className="text-thf-navy/40 transition group-open:rotate-45">
                     +
                   </span>
                 </span>
               </summary>
-              <p className="border-t border-black/5 pb-4 pt-3 text-sm leading-relaxed text-brand/75">
+              <p className="border-t border-thf-line pb-4 pt-3 text-sm leading-relaxed text-thf-muted">
                 {item.a}
               </p>
             </details>

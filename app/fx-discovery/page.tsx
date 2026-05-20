@@ -2,111 +2,139 @@ import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
 import { siteConfig } from "@/lib/config";
 
-export const metadata = {
-  title: "FX Discovery | Coming soon | C.S. MENIK SL",
-  description: "FX Discovery — coming soon.",
-};
-
 export default function FxDiscoveryPage() {
   const external =
     siteConfig.guduFxUrl.length > 0 && /^https?:\/\//i.test(siteConfig.guduFxUrl);
   const launchHref = external ? siteConfig.guduFxUrl : null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface text-brand">
-      <header className="sticky top-0 z-40 border-b border-black/[0.08] bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem]">
-          <div className="min-w-0">
-            <p className="truncate text-base font-bold tracking-tight text-brand sm:text-lg">
-              FX Discovery
-            </p>
-            <p className="mt-0.5 truncate text-xs font-medium text-brand/55">
-              Coming soon
-            </p>
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-40 border-b border-fx-edge/80 bg-fx-void/90 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem]">
+          <div className="flex items-center gap-3">
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-fx-glow/30 bg-fx-panel font-fx-mono text-xs font-bold text-fx-glow"
+              aria-hidden
+            >
+              FX
+            </span>
+            <div>
+              <p className="text-base font-semibold tracking-tight text-white sm:text-lg">
+                FX Discovery
+              </p>
+              <p className="font-fx-mono text-[10px] uppercase tracking-[0.2em] text-fx-mist">
+                {launchHref ? "Live" : "Preview build"}
+              </p>
+            </div>
           </div>
           {launchHref ? (
             <a
               href={launchHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-white shadow-soft transition-colors hover:bg-brand-muted sm:text-sm"
+              className="shrink-0 rounded-lg border border-fx-glow/50 bg-fx-glow/10 px-4 py-2 font-fx-mono text-xs font-semibold uppercase tracking-wider text-fx-glow transition-colors hover:bg-fx-glow/20 sm:text-sm"
             >
-              Open product
+              Launch app
             </a>
-          ) : null}
-        </div>
-        <div className="border-t border-black/[0.04] bg-neutral-50/80">
-          <div className="mx-auto max-w-6xl px-4 py-1.5 text-center">
-            <Link
-              href={ROUTES.parent}
-              className="text-[10px] font-medium uppercase tracking-wider text-neutral-400 transition-colors hover:text-neutral-600"
-            >
-              {siteConfig.companyIntro}
-            </Link>
-          </div>
+          ) : (
+            <span className="font-fx-mono text-[10px] uppercase tracking-widest text-fx-mist">
+              Waitlist open
+            </span>
+          )}
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col">
+      <main className="relative flex flex-1 flex-col overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-fx-grid bg-fx-grid opacity-60"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-fx-glow/10 blur-[120px]"
+          aria-hidden
+        />
+
         {!launchHref ? (
-          <div className="flex flex-1 flex-col items-center justify-center px-4 py-12 text-center sm:py-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500 sm:text-sm">
-              FX Discovery
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-16 text-center sm:py-24">
+            <p className="font-fx-mono text-xs uppercase tracking-[0.35em] text-fx-glow">
+              Market intelligence
             </p>
-            <h1 className="mt-5 max-w-4xl text-5xl font-bold leading-[0.95] tracking-tight text-brand sm:text-7xl md:text-8xl">
-              Coming Soon
+            <h1 className="mt-8 max-w-4xl text-5xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl md:text-8xl">
+              Discover
+              <span className="block bg-gradient-to-r from-fx-glow via-fx-pulse to-fx-signal bg-clip-text text-transparent">
+                what moves markets
+              </span>
             </h1>
+            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-fx-mist sm:text-lg">
+              FX Discovery is a separate environment for traders and analysts —
+              built for clarity, speed, and the next wave of market tooling.
+            </p>
+
+            <div className="mt-14 grid w-full max-w-lg gap-4 text-left sm:grid-cols-3">
+              {[
+                { label: "Signals", desc: "Curated FX context" },
+                { label: "Discovery", desc: "Cross-pair insight" },
+                { label: "Future", desc: "API-first roadmap" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-fx-edge bg-fx-panel/80 p-4 backdrop-blur-sm"
+                >
+                  <p className="font-fx-mono text-[10px] uppercase tracking-widest text-fx-glow">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm text-fx-mist">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-16 font-fx-mono text-sm uppercase tracking-[0.4em] text-fx-mist/80">
+              Coming soon
+            </p>
           </div>
         ) : (
-          <div className="flex flex-1 flex-col items-center justify-center px-4 py-16 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-brand sm:text-5xl">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               FX Discovery
             </h1>
+            <p className="mt-4 max-w-md text-fx-mist">
+              The product environment is ready. Continue in the dedicated app.
+            </p>
             <a
               href={launchHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex rounded-xl bg-brand px-8 py-3.5 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-brand-muted"
+              className="mt-10 inline-flex rounded-lg border border-fx-glow bg-fx-glow/15 px-8 py-3.5 font-fx-mono text-sm font-semibold uppercase tracking-wider text-fx-glow shadow-fx-glow transition-colors hover:bg-fx-glow/25"
             >
-              Open product
+              Launch app →
             </a>
           </div>
         )}
       </main>
 
-      <footer className="border-t border-black/5 bg-brand py-8 text-white">
+      <footer className="relative z-10 border-t border-fx-edge bg-fx-panel/50 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row">
-          <p className="text-center text-sm text-white/85 sm:text-left">
-            <span className="font-semibold text-white">FX Discovery</span>
-            <span className="text-white/50"> · </span>
-            <Link
-              href={ROUTES.parent}
-              className="text-white/75 underline-offset-2 transition-colors hover:text-white hover:underline"
-            >
-              {siteConfig.companyIntro}
-            </Link>
+          <p className="font-fx-mono text-xs text-fx-mist">
+            FX Discovery · © {new Date().getFullYear()}
           </p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/75">
+          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-fx-mist">
             <li>
-              <Link href={ROUTES.privacy} className="hover:text-white">
+              <Link href={ROUTES.privacy} className="transition-colors hover:text-fx-glow">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href={ROUTES.terms} className="hover:text-white">
+              <Link href={ROUTES.terms} className="transition-colors hover:text-fx-glow">
                 Terms
               </Link>
             </li>
             <li>
-              <Link href={ROUTES.support} className="hover:text-white">
+              <Link href={ROUTES.support} className="transition-colors hover:text-fx-glow">
                 Support
               </Link>
             </li>
           </ul>
         </div>
-        <p className="mx-auto mt-6 max-w-6xl px-4 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} {siteConfig.companyIntro}. All rights reserved.
-        </p>
       </footer>
     </div>
   );

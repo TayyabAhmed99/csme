@@ -20,18 +20,18 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
   );
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="thf-product min-h-screen bg-thf-cream font-thf">
       <div className="mx-auto max-w-lg px-4 py-10 sm:py-14">
         <Link
           href={ROUTES.touristHandsFree}
-          className="text-sm font-medium text-brand-accent hover:underline"
+          className="text-sm font-semibold text-thf-navy hover:underline"
         >
           ← Tourist Hands Free
         </Link>
         <div className="mt-8">
           <VerifyCard data={data} telegramSupportHref={telegramSupportHref} />
         </div>
-        <p className="mt-6 text-center text-xs text-brand/50">
+        <p className="mt-6 text-center text-xs text-thf-muted">
           Token reference: <span className="font-mono">{token}</span>
         </p>
       </div>

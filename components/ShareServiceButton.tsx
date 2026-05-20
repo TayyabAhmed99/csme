@@ -43,12 +43,12 @@ export function ShareServiceButton({
       <button
         type="button"
         onClick={onShare}
-        className={`inline-flex w-full items-center justify-center rounded-lg border border-brand/20 bg-white px-5 py-3 text-sm font-semibold text-brand transition-colors hover:bg-surface sm:w-auto ${className}`}
+        className={`inline-flex w-full items-center justify-center rounded-md border border-thf-navy/25 bg-thf-cream px-5 py-3 text-sm font-semibold text-thf-navy transition-colors hover:bg-thf-sky sm:w-auto ${className}`}
       >
         Share this service
       </button>
       {hint ? (
-        <span className="text-xs text-brand/60" role="status">
+        <span className="text-xs text-thf-muted" role="status">
           {hint}
         </span>
       ) : null}

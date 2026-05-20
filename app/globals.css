@@ -13,5 +13,15 @@ html {
 }
 
 body {
-  @apply bg-surface text-brand antialiased;
+  @apply antialiased;
+}
+
+.thf-product {
+  @apply font-thf;
+  background-color: #ffffff;
+  color: #0f4c81;
+}
+
+.fx-product {
+  @apply bg-fx-void font-fx text-white;
 }

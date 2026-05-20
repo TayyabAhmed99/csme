@@ -13,50 +13,50 @@ type SiteFooterProps = {
 export function SiteFooter({ telegramHref }: SiteFooterProps) {
   const mail = siteConfig.supportEmail;
   const wa = siteConfig.supportWhatsApp;
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/5 bg-brand py-12 text-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 border-b border-white/10 px-4 pb-10 text-center sm:flex-row sm:justify-between sm:text-left">
-        <p className="text-sm font-semibold tracking-wide text-white/95">
+    <footer className="border-t-2 border-thf-blue/25 bg-gradient-to-b from-thf-step to-thf-footer py-12 text-thf-navy">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 border-b border-thf-navy/15 px-4 pb-10 text-center sm:flex-row sm:justify-between sm:text-left">
+        <p className="text-sm font-semibold tracking-wide text-thf-navy">
           Affordable, Reliable, Safe.
         </p>
         <a
           href={telegramHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-thf-navy text-white transition-colors hover:bg-thf-navy-dark"
           aria-label="Telegram"
-          onClick={() => trackEvent("cta_telegram_click_footer_social", { href: telegramHref })}
+          onClick={() =>
+            trackEvent("cta_telegram_click_footer_social", { href: telegramHref })
+          }
         >
           <IconTelegram className="h-5 w-5" />
         </a>
       </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="text-lg font-semibold">Tourist Hands Free</p>
-          <p className="mt-2 text-sm text-white/75">
+          <p className="text-lg font-semibold text-thf-navy">Tourist Hands Free</p>
+          <p className="mt-2 text-sm text-thf-muted">
             Tarragona · Travel lighter. Explore more.
           </p>
-          <p className="mt-3 text-sm text-white/65">
-            Operated by <span className="text-white/90">C.S. MENIK SL</span>
-          </p>
-          <p className="mt-2 text-xs text-white/45">Tarragona, Spain</p>
+          <p className="mt-2 text-xs text-thf-muted">Tarragona, Spain</p>
         </div>
         <div>
-          <p className="text-sm font-semibold text-white/90">Quick links</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/70">
+          <p className="text-sm font-semibold text-thf-navy">Quick links</p>
+          <ul className="mt-3 space-y-2 text-sm text-thf-muted">
             <li>
-              <a href="#how-it-works" className="hover:text-white">
+              <a href="#how-it-works" className="hover:text-thf-navy">
                 How it works
               </a>
             </li>
             <li>
-              <a href="#service-features" className="hover:text-white">
+              <a href="#service-features" className="hover:text-thf-navy">
                 Services
               </a>
             </li>
             <li>
-              <a href="#faq" className="hover:text-white">
+              <a href="#faq" className="hover:text-thf-navy">
                 FAQ
               </a>
             </li>
@@ -64,9 +64,10 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
               <TrackedTelegramCta
                 href={telegramHref}
                 event="cta_telegram_click_footer_link"
+                tone="thf"
                 variant="ghost"
                 icon={false}
-                className="!justify-start !p-0 !text-sm !font-normal !text-white/70 hover:!bg-transparent hover:!text-white"
+                className="!justify-start !p-0 !text-sm !font-normal !text-thf-muted hover:!bg-transparent hover:!text-thf-navy"
               >
                 Start booking
               </TrackedTelegramCta>
@@ -74,52 +75,36 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
           </ul>
         </div>
         <div>
-          <p className="text-sm font-semibold text-white/90">Legal</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/70">
+          <p className="text-sm font-semibold text-thf-navy">Legal</p>
+          <ul className="mt-3 space-y-2 text-sm text-thf-muted">
             <li>
-              <Link href="/privacy" className="hover:text-white">
+              <Link href="/privacy" className="hover:text-thf-navy">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-white">
+              <Link href="/terms" className="hover:text-thf-navy">
                 Terms of Service
               </Link>
             </li>
             <li>
-              <Link href="/terms#service-conditions" className="hover:text-white">
+              <Link href="/terms#service-conditions" className="hover:text-thf-navy">
                 Service conditions
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms#refunds" className="hover:text-white">
-                Refunds &amp; cancellation
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-sm font-semibold text-white/90">Contact</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/70">
+          <p className="text-sm font-semibold text-thf-navy">Contact</p>
+          <ul className="mt-3 space-y-2 text-sm text-thf-muted">
             <li>
               <a
                 href={`mailto:${mail}`}
-                className="hover:text-white"
+                className="hover:text-thf-navy"
                 onClick={() => trackEvent("cta_support_click", { channel: "email" })}
               >
                 {mail}
               </a>
-            </li>
-            <li>
-              <TrackedTelegramCta
-                href={telegramHref}
-                event="cta_telegram_click_footer"
-                variant="ghost"
-                icon={false}
-                className="!justify-start !p-0 !text-sm !font-normal !text-white/70 hover:!bg-transparent hover:!text-white"
-              >
-                Telegram booking
-              </TrackedTelegramCta>
             </li>
             {wa ? (
               <li>
@@ -127,8 +112,10 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
                   href={wa}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white"
-                  onClick={() => trackEvent("cta_support_click", { channel: "whatsapp" })}
+                  className="hover:text-thf-navy"
+                  onClick={() =>
+                    trackEvent("cta_support_click", { channel: "whatsapp" })
+                  }
                 >
                   WhatsApp
                 </a>
@@ -137,8 +124,10 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
             <li>
               <Link
                 href="/support"
-                className="hover:text-white"
-                onClick={() => trackEvent("cta_support_click", { channel: "support_page" })}
+                className="hover:text-thf-navy"
+                onClick={() =>
+                  trackEvent("cta_support_click", { channel: "support_page" })
+                }
               >
                 Support page
               </Link>
@@ -146,13 +135,10 @@ export function SiteFooter({ telegramHref }: SiteFooterProps) {
           </ul>
         </div>
       </div>
-      <p className="mx-auto mt-10 max-w-6xl px-4 text-center text-xs text-white/45">
-        Service availability depends on operational zones, service windows, and booking
-        confirmation. Add a cookie notice if you enable analytics or third-party scripts.
+      <p className="mx-auto mt-10 max-w-6xl px-4 text-center text-xs text-thf-muted">
+        © {year} Tourist Hands Free · Tarragona, Spain. Service availability depends on
+        zones and booking confirmation.
       </p>
-      <div className="mx-auto mt-6 max-w-6xl border-t border-white/10 px-4 pt-6 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} C.S. MENIK SL. All rights reserved.
-      </div>
     </footer>
   );
 }

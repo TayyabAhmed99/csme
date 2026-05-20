@@ -30,15 +30,15 @@ export function MobileCtaBar({ href }: MobileCtaBarProps) {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-black/10 bg-white/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-thf-line bg-thf-cream/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-sm font-semibold text-white shadow-lift transition-colors hover:bg-brand-muted active:bg-brand-muted"
+        className="flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-b from-thf-navy to-thf-navy-dark py-3.5 text-sm font-semibold text-white shadow-thf-cta transition-colors active:scale-[0.98]"
         onClick={() => trackEvent("cta_telegram_click_sticky", { href })}
       >
-        <IconTelegram className="h-5 w-5" />
+        <IconTelegram className="h-5 w-5 text-thf-telegram" />
         Book on Telegram
       </a>
     </div>
