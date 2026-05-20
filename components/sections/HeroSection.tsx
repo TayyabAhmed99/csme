@@ -74,13 +74,6 @@ export function HeroSection({ telegramHref }: HeroSectionProps) {
           <p className="mt-3 text-sm font-medium text-white/90">
             Safe &amp; fast payment
           </p>
-          <a
-            href="#how-it-works"
-            className="mt-2 inline-block text-sm font-semibold text-white underline-offset-4 hover:underline"
-            onClick={() => trackEvent("cta_how_it_works_click", { section: "hero" })}
-          >
-            See how it works
-          </a>
         </div>
       </div>
     </section>
