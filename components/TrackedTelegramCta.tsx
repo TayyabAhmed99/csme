@@ -3,6 +3,11 @@
 import type { ReactNode } from "react";
 import { IconTelegram } from "@/components/icons";
 import { trackEvent } from "@/lib/analytics";
+import {
+  isTelegramCtaEnabled,
+  TELEGRAM_CTA_DISABLED_TITLE,
+  telegramCtaDisabledClass,
+} from "@/lib/telegram-cta";
 
 type CtaTone = "thf" | "default";
 
@@ -52,20 +57,43 @@ export function TrackedTelegramCta({
   icon = true,
   iconPosition = "start",
 }: TrackedTelegramCtaProps) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${base} ${toneStyles[tone][variant]} ${iconPosition === "end" ? "flex-row-reverse" : ""} ${className}`}
-      onClick={() => trackEvent(event, { href })}
-    >
+  const enabled = isTelegramCtaEnabled();
+  const classNames = `${base} ${toneStyles[tone][variant]} ${iconPosition === "end" ? "flex-row-reverse" : ""} ${!enabled ? telegramCtaDisabledClass : ""} ${className}`;
+
+  const content = (
+    <>
       {icon ? (
         <IconTelegram
           className={`h-5 w-5 shrink-0 ${variant === "primary" && tone === "thf" ? "text-thf-telegram" : ""}`}
         />
       ) : null}
       {children}
+    </>
+  );
+
+  if (!enabled) {
+    return (
+      <button
+        type="button"
+        disabled
+        title={TELEGRAM_CTA_DISABLED_TITLE}
+        aria-disabled="true"
+        className={classNames}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classNames}
+      onClick={() => trackEvent(event, { href })}
+    >
+      {content}
     </a>
   );
 }

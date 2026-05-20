@@ -13,6 +13,9 @@ export const siteConfig = {
   supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP ?? "",
   enableVerify: process.env.NEXT_PUBLIC_ENABLE_VERIFY !== "false",
   enableShare: process.env.NEXT_PUBLIC_ENABLE_SHARE !== "false",
+  /** Set NEXT_PUBLIC_ENABLE_TELEGRAM_CTAS=true when bot deep links are ready. */
+  enableTelegramCtas:
+    process.env.NEXT_PUBLIC_ENABLE_TELEGRAM_CTAS === "true",
   /** Optional public HTTPS URL for FX Discovery; when set, /fx-discovery shows an external launch CTA. */
   guduFxUrl: (process.env.NEXT_PUBLIC_GUDUX_FX_URL ?? "").trim(),
 } as const;
