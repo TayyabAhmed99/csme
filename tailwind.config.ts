@@ -38,7 +38,7 @@ const config: Config = {
           telegram: "#24A1DE",
           line: "#B8D4E8",
         },
-        /* FX Discovery — dark fintech */
+        /* FX Discovery — dark + cyan / lavender / teal gradient accent */
         fx: {
           void: "#030712",
           panel: "#0f1419",
@@ -61,7 +61,8 @@ const config: Config = {
         "thf-card":
           "0 4px 20px rgba(15, 76, 129, 0.1), 0 1px 3px rgba(15, 76, 129, 0.06)",
         "thf-cta": "0 6px 24px rgba(15, 76, 129, 0.28)",
-        "fx-glow": "0 0 40px rgba(34, 211, 238, 0.15), 0 0 80px rgba(129, 140, 248, 0.08)",
+        "fx-glow":
+          "0 0 40px rgba(34, 211, 238, 0.15), 0 0 80px rgba(129, 140, 248, 0.08)",
       },
       backgroundImage: {
         "thf-hero":
